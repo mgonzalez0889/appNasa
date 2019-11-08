@@ -1,0 +1,35 @@
+<h3>Menu de botones</h3>
+
+<div>
+  <button> Basico</button>
+  <button mat-button color="primary">Boton primario</button>
+</div>
+
+<h3>Botones con elevacion</h3>
+<div>
+  <button mat-raised-button [disabled]="!formulario.valido">Basico</button>
+  <button mat-raised-button color="primary" [disabled]="!formulario.valido">Basico</button>
+</div>
+
+<h3>Botones con iconos</h3>
+<div>
+  <button mat-icon-button (click)="onClick($event)">
+    <mat-icon>grade</mat-icon>
+  </button>
+  <button mat-icon-button color="primary">
+    <mat-icon>grade</mat-icon>
+  </button>
+</div>
+
+<h3>Botones de accion (FAB)</h3>
+<div>
+  <button mat-fab>
+    <mat-icon>grade</mat-icon>
+  </button>
+  <button mat-fab color="primary">
+     <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+
+
