@@ -12,7 +12,10 @@ export class HomeComponent implements OnInit {
   constructor(private nasaApi: NasaApiService) {}
 
   ngOnInit() {
-    this.apod = this.nasaApi.getApod();
+    this.nasaApi.getApod().
+        subscribe(data => {
+        this.apod = data;
+    });
 
   }
 

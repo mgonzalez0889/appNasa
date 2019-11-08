@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import {Apod} from '../shared/models/apod';
+import { HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs';
+
+const APOD_URL = 'https://api.nasa.gov/planetary/apod';
+const API_KEY = 'DEMO_KEY';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NasaApiService {
 
-  private readonly DATA: Apod =  {
+  /*private readonly DATA: Apod =  {
     title: 'prueba',
     date: '2019/11/08',
     url: 'https://s1.eestatic.com/2017/01/05/actualidad/Actualidad_183744742_129728060_1024x576.jpg',
@@ -15,16 +20,17 @@ export class NasaApiService {
       'Cras lacinia, est non rutrum eleifend, sapien ipsum faucibus purus, vitae vehicula turpis nulla ut augue. Curabitur faucibus massa eu vulputate accumsan. Quisque a dignissim sem. Phasellus mollis vel orci id sollicitudin. Mauris nec tellus a eros blandit consequat. Pellentesque placerat, augue ac consectetur interdum, tellus ipsum aliquet mi, quis tincidunt erat diam et risus. Aliquam erat volutpat. Vestibulum diam neque, porttitor et turpis non, posuere hendrerit ex. Sed id ante lacus. Pellentesque lobortis vel lectus quis sagittis. Nullam ac leo dolor. Sed nec elit hendrerit, scelerisque magna sed, pulvinar justo.\n' +
       '\n' +
       'In dolor sapien, volutpat eget mi ut, vestibulum pellentesque dolor. Nulla eu tortor a neque dictum convallis at sit amet purus. Morbi a augue pulvinar nisi consectetur pharetra. Quisque a risus lorem. Vivamus turpis nisl, tristique ut feugiat eu, aliquet in velit. Proin ac luctus leo. Cras vitae facilisis sapien, vitae tempus lorem. Vestibulum a felis eu mi molestie bibendum vel id risus. Etiam egestas ultrices odio, ut dapibus elit tempus ac. Nunc ut tellus molestie, luctus nisl sit amet, iaculis nunc. Quisque tristique efficitur urna, eget molestie turpis luctus condimentum. Cras laoreet, nisl non interdum vulputate, arcu magna fermentum erat, non lacinia lacus ligula quis elit. Cras sed nulla diam.'
-  };
+  };*/
 
+  constructor(private http: HttpClient) { }
 
-
-  constructor() { }
-
-  getApod() {
-    return this.DATA;
+  getApod(): Observable<any> {
+    // return this.DATA;
+    return this.http.get(APOD_URL + '?api_key=' + API_KEY);
 
   }
+
+
 
 
 }

@@ -8,6 +8,7 @@ import { MaterialModule } from './material/material.module';
 
 import { HomeComponent } from './components/home/home.component';
 import {NasaApiService} from './services/nasa-api.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -20,7 +21,9 @@ import {NasaApiService} from './services/nasa-api.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
+
   ],
   providers: [NasaApiService],
   bootstrap: [AppComponent]
